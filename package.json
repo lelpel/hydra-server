@@ -1,0 +1,26 @@
+{
+  "name": "hydra-server",
+  "version": "0.0.1",
+  "description": "Hydra oauth server",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lelpel/hydra-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lelpel/hydra-server/issues"
+  },
+  "homepage": "https://github.com/lelpel/hydra-server#readme",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0"
+  }
+}
