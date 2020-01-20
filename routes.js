@@ -9,6 +9,6 @@ router.get("/", ctx => {
 });
 
 router.use("/login", loginRouter.routes());
-router.use("/register", registerRouter.routes());
+// router.use("/register", registerRouter.routes());
 
 module.exports = router;
