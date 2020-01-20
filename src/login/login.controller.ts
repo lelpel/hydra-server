@@ -22,7 +22,6 @@ export class LoginController {
     @Req() req,
     @Res() res,
   ) {
-    //await this.loginService.getLoginRequest(`test`).
     const { skip, subject } = await this.loginService.getLoginRequest(
       challenge,
     );
