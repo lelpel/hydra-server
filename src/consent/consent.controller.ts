@@ -18,7 +18,7 @@ export class ConsentController {
 
   @Get()
   async consent(
-    @Query('login_challenge') challenge: string,
+    @Query('consent_challenge') challenge: string,
     @Req() req,
     @Res() res,
   ) {
@@ -47,7 +47,6 @@ export class ConsentController {
     }
 
     return res.render('consent', {
-      csrfToken: req.csrfToken(),
       challenge,
       requested_scope: response.requested_scope,
       user: response.subject,
