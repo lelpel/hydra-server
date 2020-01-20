@@ -19,7 +19,7 @@ export class LogoutController {
   async logout(
     @Query('logout_challenge') challenge: string,
     @Req() req,
-    @Res() res: Response,
+    @Res() res,
   ) {
     const { skip, subject } = await this.logoutService.getLogoutRequest(
       challenge,
@@ -36,7 +36,7 @@ export class LogoutController {
     @Body('challenge') challenge: string,
     @Body('submit') submit,
     @Req() req,
-    @Res() res: Response,
+    @Res() res,
   ) {
     if (submit === 'No') {
       return res.redirect('https://hive.id');

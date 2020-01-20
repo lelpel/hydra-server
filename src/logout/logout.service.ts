@@ -1,7 +1,10 @@
 import { Injectable } from '@nestjs/common';
+import { HydraService } from 'src/hydra/hydra.service';
 
 @Injectable()
 export class LogoutService {
+  constructor(private readonly hydraService: HydraService) {}
+
   async getLogoutRequest(challenge: string) {
     return await this.hydraService.getLogoutRequest(challenge);
   }
@@ -12,7 +15,7 @@ export class LogoutService {
    * @param subject
    * @returns redirect url
    */
-  async acceptLogoutRequest(challenge: string): string {
+  async acceptLogoutRequest(challenge: string): Promise<string> {
     const { redirect_to } = await this.hydraService.acceptLogoutRequest(
       challenge,
     );

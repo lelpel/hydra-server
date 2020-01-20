@@ -20,8 +20,9 @@ export class LoginController {
   async login(
     @Query('login_challenge') challenge: string,
     @Req() req,
-    @Res() res: Response,
+    @Res() res,
   ) {
+    //await this.loginService.getLoginRequest(`test`).
     const { skip, subject } = await this.loginService.getLoginRequest(
       challenge,
     );
@@ -42,7 +43,7 @@ export class LoginController {
   async loginWithCredentials(
     @Body() credentialsDto: LoginCredentialsDto,
     @Req() req,
-    @Res() res: Response,
+    @Res() res,
   ) {
     const { email, password, challenge, remember } = credentialsDto;
 
@@ -59,7 +60,7 @@ export class LoginController {
     return res.redirect(
       await this.loginService.acceptLoginRequestAndRemember(
         challenge,
-        subject,
+        `foo@bar.com`,
         Boolean(remember),
       ),
     );

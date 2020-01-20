@@ -15,10 +15,16 @@ export class LoginService {
    * @param subject
    * @returns redirect url
    */
-  async acceptLoginRequest(challenge: string, subject: string): string {
-    const {
-      redirect_to,
-    } = await this.hydraService.acceptLoginRequest(challenge, { subject });
+  async acceptLoginRequest(
+    challenge: string,
+    subject: string,
+  ): Promise<string> {
+    const { redirect_to } = await this.hydraService.acceptLoginRequest(
+      challenge,
+      {
+        subject,
+      },
+    );
 
     return redirect_to;
   }
@@ -27,7 +33,7 @@ export class LoginService {
     challenge: string,
     subject: string,
     remember: boolean,
-  ): string {
+  ): Promise<string> {
     const { redirect_to } = await this.hydraService.acceptLoginRequest(
       challenge,
       {
