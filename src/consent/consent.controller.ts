@@ -47,7 +47,6 @@ export class ConsentController {
     }
 
     return res.render('consent', {
-      csrfToken: req.csrfToken(),
       challenge,
       requested_scope: response.requested_scope,
       user: response.subject,

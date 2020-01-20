@@ -26,7 +26,6 @@ export class LogoutController {
     );
 
     return res.render('logout', {
-      csrfToken: req.csrfToken(),
       challenge,
     });
   }

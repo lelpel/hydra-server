@@ -34,7 +34,6 @@ export class LoginController {
     }
 
     return res.render('login', {
-      csrfToken: req.csrfToken(),
       challenge,
     });
   }
@@ -49,8 +48,6 @@ export class LoginController {
 
     if (!(email === 'foo@bar.com' && password === 'foobar')) {
       return res.render('login', {
-        csrfToken: req.csrfToken(),
-
         challenge,
 
         error: 'The username / password combination is not correct',
