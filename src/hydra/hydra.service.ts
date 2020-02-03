@@ -41,6 +41,21 @@ export class HydraService {
     return await this.put('logout', 'reject', challenge, {});
   }
 
+  /******* auth methods *******/
+  public async introspectToken(token) {
+    try {
+      const { data } = await this.httpService
+        .post(`/oauth2/introspect`, token)
+        .toPromise();
+
+      return data;
+    } catch (error) {
+      console.log(error);
+      return error;
+    }
+  }
+
+  //************* helper methods *********/
   private async get(flow: string, challenge: string) {
     try {
       const { data } = await this.httpService
